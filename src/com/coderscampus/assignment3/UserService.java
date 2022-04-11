@@ -56,6 +56,38 @@ public class UserService {
         Scanner sc = new Scanner(System.in);
         int attempt = 0;
         int index = 0;
+//        String username="";
+//        String password="";
+//        UserPOJO newUser = usersInfo[index];
+//
+//        while (attempt != 5) {
+//            System.out.println("Enter your username: ");
+//            username = sc.nextLine();
+//            System.out.println("Enter your password: ");
+//            password = sc.nextLine();
+//
+//            if (username.equalsIgnoreCase(newUser.getUsername()) && password.equals(newUser.getPassword())) {
+//                System.out.println("Welcome " + newUser.getName());
+//                break;
+//            }
+//            while (index < 3 && (!username.equalsIgnoreCase(newUser.getUsername()) || !password.equals(newUser.getPassword()))) {
+//                index++;
+//                newUser = usersInfo[index];
+//            }
+//            if (index == 3 && (!username.equalsIgnoreCase(newUser.getUsername()) || !password.equals(newUser.getPassword()))) {
+//                attempt++;
+//                System.out.println("Invalid login, please try again: ");
+//                System.out.println("Enter your username: ");
+//                username = sc.nextLine();
+//                System.out.println("Enter your password: ");
+//                password = sc.nextLine();
+//                index = 0;
+//                newUser = usersInfo[index];
+//            }
+//        }
+//        if (attempt == 5 && (!username.equalsIgnoreCase(newUser.getUsername()) || !password.equals(newUser.getPassword()))) {
+//            System.out.println("Too many failed login attempts, you are now locked out.");
+//        }
 
 
         System.out.println("Enter your username: ");
@@ -64,7 +96,8 @@ public class UserService {
         String password = sc.nextLine();
         UserPOJO newUser = usersInfo[index];
 
-        while (attempt != 5 && (!username.equalsIgnoreCase(newUser.getUsername()) || !password.equals(newUser.getPassword()))){
+
+        while (attempt != 4 && (!username.equalsIgnoreCase(newUser.getUsername()) || !password.equals(newUser.getPassword()))){
             while (index < 3 && (!username.equalsIgnoreCase(newUser.getUsername()) || !password.equals(newUser.getPassword()))) {
                 index++;
                 newUser = usersInfo[index];
@@ -80,10 +113,9 @@ public class UserService {
                 newUser = usersInfo[index];
             }
 
-        }if (attempt <= 5 && username.equalsIgnoreCase(newUser.getUsername()) && password.equals(newUser.getPassword())) {
-                System.out.println("Welcome " + newUser.getName());
-
-        } else if (attempt == 5 && (!username.equalsIgnoreCase(newUser.getUsername()) || !password.equals(newUser.getPassword()))) {
+        }if (username.equalsIgnoreCase(newUser.getUsername()) && password.equals(newUser.getPassword())) {
+            System.out.println("Welcome " + newUser.getName());
+        }else if (attempt == 4 && (!username.equalsIgnoreCase(newUser.getUsername()) || !password.equals(newUser.getPassword()))) {
             System.out.println("Too many failed login attempts, you are now locked out.");
         }
 
